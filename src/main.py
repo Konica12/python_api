@@ -25,12 +25,12 @@ def formatOutput(output):
  logging.info("According to %s, in %s years from %s to %s,peak population growth was %s in %s and lowest population increase was %s in %s."
      %(sourceName,numOfYears,startYear,endYear,f"{round(peakValue,2)}%",year,f"{round(lowestValue,2)}%",lowestyear))
 
-URL = "https://datausa.io/api/data?drilldowns=Nation&measures=Population"
+URL = "https://datausa.io/api/data?drilldowns=Natio&measures=Population"
 
 response = requests.get(url=URL)
 outputres = json.loads(response.text)
 if response.status_code >= 300 or len(outputres['data']) == 0:
-    logging.error(f"Please check the API.Status code is {response.status_code} or response contains empty value.")
+    logging.error(f"Please check the API.Status code is {response.status_code} and response contains empty value.")
     raise Exception ()    
 else:    
   
